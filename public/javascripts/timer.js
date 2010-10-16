@@ -1,3 +1,5 @@
+// Tken from http://www.dailycoding.com/Posts/object_oriented_programming_with_javascript__timer_class.aspx
+
 var Timer = function()
 {
 	// Property: Frequency of elapse event of the timer in millisecond
@@ -34,7 +36,11 @@ var Timer = function()
 	this.stop = function()
 	{
 		thisObject.enable = new Boolean(false);
-		clearInterval(thisObject.timerId);
 	};
 
+  // Function: Resets the timer
+	this.reset = function()
+	{
+		clearInterval(thisObject.timerId);
+	};
 };

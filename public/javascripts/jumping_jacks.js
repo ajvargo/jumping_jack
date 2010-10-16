@@ -1,9 +1,9 @@
 var JumpingJacks = {
+  timer : new Timer(),
   onReady : function() {
     $("a[id!=start]").hide();
-    var timer = new Timer();
-    timer.interval = 5000;
-    timer.Tick = JumpingJacks.tick;
+    JumpingJacks.timer.interval = 5000;
+    JumpingJacks.timer.Tick = JumpingJacks.tick;
     $("#start").click(JumpingJacks.start);
     $("#stop").click(JumpingJacks.stop);
     $("#reset").click(JumpingJacks.reset);
