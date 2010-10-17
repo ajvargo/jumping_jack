@@ -52,7 +52,8 @@ var JumpingJacks = {
   save : function(event){
     if(JumpingJacks.counter == 0) return false;
     event.preventDefault();
-    $.post("/trips/create/" + JumpingJacks.counter, function(html){JumpingJacks.updatePage(html)});
+    $.post("/trips/",{counter: JumpingJacks.counter}, function(html){JumpingJacks.updatePage(html)});
+    JumpingJacks.reset();
     return false;
   },
   updatePage : function(html){

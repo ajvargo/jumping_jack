@@ -1,5 +1,6 @@
 JumpingJacks::Application.routes.draw do
-  resources :trips, :only => [:index]
+  resources :trips, :only => [:index, :create]
+
   root :to => "trips#index"
 
   # The priority is based upon order of creation:

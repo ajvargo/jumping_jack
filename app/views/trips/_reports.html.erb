@@ -1,0 +1,15 @@
+<h2>Today</h2>
+<ul>
+  <li>Total: <%= seconds_to_time today.sum(:duration) %></li>
+  <%= render :partial => 'trip', :collection => today, :as => :trip %>
+</ul>
+<h2>In the Last Month</h2>
+<ul>
+  <li>Total: <%= seconds_to_time month.sum(:duration) %></li>
+  <%= render :partial => 'trip', :collection => month, :as => :trip %>
+</ul>
+<h2>In the Last Year</h2>
+<ul>
+  <li>Total: <%= seconds_to_time year.sum(:duration) %></li>
+  <%= render :partial => 'trip', :collection => year, :as => :trip %>
+</ul>

@@ -1,11 +1,10 @@
-
-ul {
+#timer ul {
    list-style: none;
    clear:both;
    margin:1em 1em 1em 1.5em;
    padding: 1em 0;
 }
-li{
+#timer li{
    display: inline;
    margin: 0;
    padding: 1em;
@@ -52,3 +51,25 @@ a {
   float:left;
 }
 img#jumper {float:left;margin: 1em; padding:1em;}
+
+#timer{
+  float: left;
+  width: 32em;
+}
+#reports {
+  width: 25em;
+  float: left;
+  margin: 1em;
+}
+#reports ul {
+  margin: 0;
+  padding: 0 .5em;
+  list-style: none;
+}
+#reports h2 {
+  margin: .25em ;
+  padding: 0;
+}
+#reports ul li:first-child {
+  font-weight: bold;
+}

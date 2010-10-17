@@ -1,8 +1,14 @@
-<div id="counter"></div>
-<%= image_tag "jumping_jacks.gif", :id => "jumper" %>
-<ul>
-  <li id="start" class="on"><%= link_to "Start Jumpin'" %></li>
-  <li id="stop" class="off"><%= link_to "Stop Jumpin'" %></li>
-  <li id="reset" class="reset"><%= link_to "Reset Counter" %></li>
-</ul>
-<p id="save"><%= link_to "Save" %></p>
+<div id="timer">
+  <div id="counter"></div>
+  <%= image_tag "jumping_jacks.gif", :id => "jumper" %>
+  <ul>
+    <li id="start" class="on"><%= link_to "Start Jumpin'" %></li>
+    <li id="stop" class="off"><%= link_to "Stop Jumpin'" %></li>
+    <li id="reset" class="reset"><%= link_to "Reset Counter" %></li>
+  </ul>
+  <p id="save"><%= link_to "Save" %></p>
+</div>
+
+<div id="reports">
+  <%= render :partial => 'reports', :locals => {:today => @today, :month => @month, :year => @year} %>
+</div>
