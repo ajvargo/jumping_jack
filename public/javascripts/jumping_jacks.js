@@ -1,27 +1,27 @@
 var JumpingJacks = {
-  timer : new Timer(),
   onReady : function() {
-    $("a[id!=start]").hide();
-    JumpingJacks.timer.interval = 5000;
-    JumpingJacks.timer.Tick = JumpingJacks.tick;
-    $("#start").click(JumpingJacks.start);
-    $("#stop").click(JumpingJacks.stop);
-    $("#reset").click(JumpingJacks.reset);
+    $("#stop").hide();
+    $("#start a").click(JumpingJacks.start);
+    $("#stop a").click(JumpingJacks.stop);
+    $("#reset a").click(JumpingJacks.reset);
   },
-  tick : function() {
-    alert("tick");
-  },
-  start : function(timer) {
-    alert("start")
+  start : function() {
+    JumpingJacks.toggleLinks();
+
     return false;
   },
-  stop : function(timer) {
-    alert("stop")
+  stop : function() {
+    JumpingJacks.toggleLinks();
+
     return false;
   },
-  reset : function(timer) {
-    alert("reset")
+  reset : function() {
+
     return false;
+  },
+  toggleLinks : function(){
+    $("#start").toggle();
+    $("#stop").toggle();
   }
 };
 
