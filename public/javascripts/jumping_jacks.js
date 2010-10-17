@@ -5,15 +5,16 @@ var JumpingJacks = {
     $("#start a").click(JumpingJacks.start);
     $("#stop a").click(JumpingJacks.stop);
     $("#reset a").click(JumpingJacks.reset);
+    $("#save a").click(JumpingJacks.save);
     var param = window.location.href.split('=');
     if(param.length>1) JumpingJacks.counter = param[1];
     $("#counter").addClass("off").removeClass("on");
-    JumpingJacks.updatePage();
+    JumpingJacks.updateCounter();
   },
   counter: 0,
   tick : function() {
     JumpingJacks.counter += 1;
-    JumpingJacks.updatePage();
+    JumpingJacks.updateCounter();
   },
   start : function() {
     JumpingJacks.toggle();
@@ -27,15 +28,16 @@ var JumpingJacks = {
   },
   reset : function() {
     JumpingJacks.counter = 0;
-    JumpingJacks.updatePage();
+    JumpingJacks.updateCounter();
     return false;
   },
   toggle : function(){
     $("#start").toggle();
     $("#stop").toggle();
     $("#jumper").toggle();
+    $("#save").toggle();
   },
-  updatePage : function(){
+  updateCounter : function(){
     $("#counter").html(JumpingJacks.time);
   },
   time : function(){
@@ -46,6 +48,15 @@ var JumpingJacks = {
     var minutes = Math.floor(seconds / 60);
     seconds -= minutes * 60;
     return (hours>0 ? hours + ":" : "" ) + (minutes<10 ? "0" : "") + minutes + ":" + (seconds<10 ? "0" : "") + seconds;
+  },
+  save : function(event){
+    if(JumpingJacks.counter == 0) return false;
+    event.preventDefault();
+    $.post("/trips/create/" + JumpingJacks.counter, function(html){JumpingJacks.updatePage(html)});
+    return false;
+  },
+  updatePage : function(html){
+    $("#reports").html(html);
   }
 };
 
