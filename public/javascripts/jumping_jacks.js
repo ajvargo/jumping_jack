@@ -1,11 +1,13 @@
 var JumpingJacks = {
   onReady : function() {
     $("#stop").hide();
+    $("#jumper").hide();
     $("#start a").click(JumpingJacks.start);
     $("#stop a").click(JumpingJacks.stop);
     $("#reset a").click(JumpingJacks.reset);
     var param = window.location.href.split('=');
     if(param.length>1) JumpingJacks.counter = param[1];
+    $("#counter").addClass("off").removeClass("on");
     JumpingJacks.updatePage();
   },
   counter: 0,
@@ -14,13 +16,13 @@ var JumpingJacks = {
     JumpingJacks.updatePage();
   },
   start : function() {
-    JumpingJacks.toggleLinks();
-    $("#counter").everyTime("1s", "jumpupjumpupjumparound", JumpingJacks.tick);
+    JumpingJacks.toggle();
+    $("#counter").addClass("on").removeClass("off").everyTime("1s", "jumpupjumpupjumparound", JumpingJacks.tick);
     return false;
   },
   stop : function() {
-    JumpingJacks.toggleLinks();
-    $("#counter").stopTime("jumpupjumpupjumparound");
+    JumpingJacks.toggle();
+    $("#counter").addClass("off").removeClass("on").stopTime("jumpupjumpupjumparound");
     return false;
   },
   reset : function() {
@@ -28,9 +30,10 @@ var JumpingJacks = {
     JumpingJacks.updatePage();
     return false;
   },
-  toggleLinks : function(){
+  toggle : function(){
     $("#start").toggle();
     $("#stop").toggle();
+    $("#jumper").toggle();
   },
   updatePage : function(){
     $("#counter").html(JumpingJacks.time);

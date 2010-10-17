@@ -1,7 +1,8 @@
-<h1>Jumping Jacks</h1>
-<div id="counter">0</div>
+<div id="counter"></div>
+<%= image_tag "jumping_jacks.gif", :id => "jumper" %>
 <ul>
-  <li id="start"><%= link_to "Start Jumpin'" %></li>
-  <li id="stop"><%= link_to "Stop Jumpin'" %></li>
-  <li id="reset"><%= link_to "Reset Counter" %></li>
+  <li id="start" class="on"><%= link_to "Start Jumpin'" %></li>
+  <li id="stop" class="off"><%= link_to "Stop Jumpin'" %></li>
+  <li id="reset" class="reset"><%= link_to "Reset Counter" %></li>
 </ul>
+<p id="save"><%= link_to "Save" %></p>
