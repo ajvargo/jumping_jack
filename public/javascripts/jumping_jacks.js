@@ -41,7 +41,7 @@ var JumpingJacks = {
     $("#counter").html(JumpingJacks.time);
   },
   time : function(){
-    if(JumpingJacks.counter == 0) return "0:00";
+    if(JumpingJacks.counter == 0) return "00:00";
     var seconds = JumpingJacks.counter;
     var hours = Math.floor(seconds / 3600);
     seconds -= hours * 3600;
